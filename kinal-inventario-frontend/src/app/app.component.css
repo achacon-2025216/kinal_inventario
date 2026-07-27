@@ -1,0 +1,218 @@
+/* ==========================================================================
+   RESET & CONFIGURACIÓN GLOBAL (TEMA VIBRANTE Y MODERNO)
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-main: #f0f4f8;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --border-color: #cbd5e1;
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --accent: #38bdf8;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   NAVBAR MODERNA CON DEGRADADO
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.navbar__brand {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar__links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.navbar__links a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar__links a.activo {
+  color: #0f172a;
+  background: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.navbar__auth a, 
+.navbar__auth button {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.navbar__auth a:hover, 
+.navbar__auth button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #38bdf8;
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ==========================================================================
+   TARJETAS Y TABLAS CON ESTILO ELEVADO
+   ========================================================================== */
+.tabla, .card, .encabezado {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.tabla th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tabla td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.tabla tbody tr {
+  transition: all 0.2s ease;
+}
+
+.tabla tbody tr:hover {
+  background: #f0fdf4; /* Sutil tono verde menta al pasar el mouse */
+  transform: scale(1.001);
+}
+
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   ENCABEZADOS Y BOTONES DESTACADOS
+   ========================================================================== */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #ffffff, #f8fafc);
+  border-left: 5px solid var(--primary);
+}
+
+.encabezado h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+.btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+}
+
+.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}

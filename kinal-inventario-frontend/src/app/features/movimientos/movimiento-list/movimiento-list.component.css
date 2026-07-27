@@ -1,0 +1,142 @@
+/* ==========================================================================
+   DISEÑO PROFESIONAL - MOVIMIENTOS (Idéntico a Productos y Categorías)
+   ========================================================================== */
+
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.content-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.encabezado h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.encabezado .btn {
+  background-color: #4f46e5;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+  transition: all 0.2s ease;
+}
+
+.encabezado .btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+table.tabla thead th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e2e8f0;
+  text-align: left;
+}
+
+table.tabla tbody td {
+  padding: 16px;
+  font-size: 0.95rem;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+table.tabla tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+table.tabla tbody td strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Estilo personalizado tipo Badge para los tipos de movimiento (Entrada / Salida) */
+.badge-tipo {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-tipo.entrada {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-tipo.salida {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.fecha-col {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.cantidad-col {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #dc2626;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.vacio-msj {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-style: italic;
+}

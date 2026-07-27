@@ -1,0 +1,20 @@
+.category-id {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.status-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-dark);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-dark);
+}
+
+.status-card.error {
+  color: var(--accent-rose);
+  border-color: rgba(244, 63, 94, 0.3);
+}

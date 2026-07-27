@@ -1,0 +1,50 @@
+<div class="page-container">
+  <div class="page-header">
+    <div class="header-titles">
+      <h2>Categorías de Productos</h2>
+      <p>Organiza la clasificación y familias de artículos del inventario.</p>
+    </div>
+    <a routerLink="/categorias/nueva" class="btn-primary">
+      <svg class="icon-svg" viewBox="0 0 20 20"><path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"/></svg>
+      Nueva Categoría
+    </a>
+  </div>
+
+  <div *ngIf="cargando" class="status-card">Cargando categorías...</div>
+  <div *ngIf="!cargando && errorMensaje" class="status-card error">{{ errorMensaje }}</div>
+  <div *ngIf="!cargando && !errorMensaje && categorias.length === 0" class="status-card">
+    No hay categorías registradas.
+  </div>
+
+  <div class="table-card" *ngIf="!cargando && !errorMensaje && categorias.length > 0">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width: 80px;">ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th class="text-center" style="width: 220px;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of categorias">
+          <td class="category-id">#{{ c.id }}</td>
+          <td><strong style="color: #ffffff;">{{ c.nombre }}</strong></td>
+          <td style="color: var(--text-muted);">{{ c.descripcion || 'Sin descripción' }}</td>
+          <td class="text-center">
+            <div class="action-buttons">
+              <a [routerLink]="['/categorias/editar', c.id]" class="btn-action edit">
+                <svg class="icon-svg" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/></svg>
+                Editar
+              </a>
+              <button (click)="eliminar(c)" class="btn-action delete">
+                <svg class="icon-svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

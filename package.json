@@ -1,0 +1,18 @@
+{
+  "name": "kinal-inventario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "pnpm --dir backend run dev",
+    "frontend": "pnpm --dir frontend exec ng serve",
+    "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,green\" \"pnpm backend\" \"pnpm frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}

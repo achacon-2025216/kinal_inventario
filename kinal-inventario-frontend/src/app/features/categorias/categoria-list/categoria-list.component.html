@@ -1,0 +1,49 @@
+<div class="page-container">
+  <div class="content-card">
+    
+    <div class="encabezado">
+      <h2>Categorías</h2>
+      <a *ngIf="authService.estaAutenticado()" class="btn" routerLink="/categorias/nuevo">
+        + Nueva categoría
+      </a>
+    </div>
+
+    <p *ngIf="cargando">Cargando categorías...</p>
+    <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+    <div class="table-responsive" *ngIf="!cargando && categorias.length > 0">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th># Productos</th>
+            <th *ngIf="authService.estaAutenticado()">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoria of categorias">
+            <td><strong>{{ categoria.nombre }}</strong></td>
+            <td>{{ categoria.descripcion || "—" }}</td>
+            <td>
+              <span class="badge-categoria">
+                {{ categoria._count?.productos ?? 0 }}
+              </span>
+            </td>
+            <td *ngIf="authService.estaAutenticado()">
+              <div class="acciones-container">
+                <a class="btn-editar" [routerLink]="['/categorias/editar', categoria.id]">Editar</a>
+                <button class="btn-eliminar" (click)="eliminar(categoria)">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p *ngIf="!cargando && categorias.length === 0 && !errorMensaje" class="vacio-msj">
+      No hay categorías registradas todavía.
+    </p>
+
+  </div>
+</div>

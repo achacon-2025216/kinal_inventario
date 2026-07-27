@@ -1,0 +1,55 @@
+<div class="page-container">
+  <div class="content-card">
+    
+    <div class="encabezado">
+      <h2>Gestión de Productos</h2>
+      <a *ngIf="authService.estaAutenticado()" class="btn" routerLink="/productos/nuevo">
+        + Nuevo producto
+      </a>
+    </div>
+
+    <p *ngIf="cargando">Cargando productos...</p>
+    <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+    <div class="table-responsive" *ngIf="!cargando && productos.length > 0">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th *ngIf="authService.estaAutenticado()">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td><strong>{{ producto.nombre }}</strong></td>
+            <td>
+              <span class="badge-categoria">
+                {{ producto.categoria?.nombre || "—" }}
+              </span>
+            </td>
+            <td class="precio-columna">
+              {{ producto.precio | currency: "GTQ" }}
+            </td>
+            <td [class.alerta]="tieneStockBajo(producto)">
+              {{ producto.stock }} <span class="stock-min">/ mín {{ producto.stockMinimo }}</span>
+            </td>
+            <td *ngIf="authService.estaAutenticado()">
+              <div class="acciones-container">
+                <a class="btn-editar" [routerLink]="['/productos/editar', producto.id]">Editar</a>
+                <button class="btn-eliminar" (click)="eliminar(producto)">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p *ngIf="!cargando && productos.length === 0 && !errorMensaje" class="vacio-msj">
+      No hay productos registrados todavía.
+    </p>
+
+  </div>
+</div>

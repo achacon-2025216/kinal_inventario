@@ -1,0 +1,46 @@
+<div class="page-container">
+  <div class="content-card">
+    
+    <div class="encabezado">
+      <h2>Movimientos de inventario</h2>
+      <a *ngIf="authService.estaAutenticado()" class="btn" routerLink="/movimientos/nuevo">
+        + Registrar movimiento
+      </a>
+    </div>
+
+    <p *ngIf="cargando">Cargando movimientos...</p>
+    <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+    <div class="table-responsive" *ngIf="!cargando && movimientos.length > 0">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Motivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mov of movimientos">
+            <td class="fecha-col">{{ mov.fecha | date: "dd/MM/yyyy HH:mm" }}</td>
+            <td><strong>{{ mov.producto?.nombre || "—" }}</strong></td>
+            <td>
+              <span class="badge-tipo" [class.entrada]="mov.tipo === 'ENTRADA'" [class.salida]="mov.tipo === 'SALIDA'">
+                {{ mov.tipo }}
+              </span>
+            </td>
+            <td class="cantidad-col">{{ mov.cantidad }}</td>
+            <td>{{ mov.motivo || "—" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p *ngIf="!cargando && movimientos.length === 0 && !errorMensaje" class="vacio-msj">
+      No hay movimientos registrados todavía.
+    </p>
+
+  </div>
+</div>
